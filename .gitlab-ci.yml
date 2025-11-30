@@ -1,0 +1,71 @@
+variables: 
+    BUILD_REACT_DEMO: 'pnpm  -C react build'
+    BUILD_UNI_VUE3: 'pnpm -C uni-vue3 build:h5'
+    BUILD_VUE2: 'pnpm -C vue2 build'
+    BUILD_VUE3: 'pnpm -C vue3 build'
+cache: 
+    paths: 
+        - node_modules
+        - react/node_modules
+        - vue2/node_modules
+        - vue3/node_modules
+        - uni-vue3/node_modules
+        - react/dist
+        - vue2/dist
+        - vue3/dist
+        - uni-vue3/dist
+stages: 
+    - install
+    - build
+    - deploy
+    - build_edgeone
+install: 
+    stage: install
+    script: 
+        - 'pnpm install --no-frozen-lockfile'
+build: 
+    stage: build
+    script: 
+        - $BUILD_REACT_DEMO
+        - $BUILD_UNI_VUE3
+        - $BUILD_VUE2
+        - $BUILD_VUE3
+        - ls
+build_edgeone: 
+    stage: build_edgeone
+    script: 
+        - ls
+        - rm -rf edgeone/*
+        - ls
+        - mkdir -p edgeone
+        - touch edgeone/index.html
+        - echo "<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"content="width=device-width, initial-scale=1.0"><title></title></head><body></body></html>" > edgeone/index.html
+        - mkdir -p edgeone/react
+        - mkdir -p edgeone/vue2
+        - mkdir -p edgeone/vue3
+        - mkdir -p edgeone/uni-vue3
+        - cp -rf react/dist/* edgeone/react
+        - cp -rf vue2/dist/* edgeone/vue2
+        - cp -rf vue3/dist/* edgeone/vue3
+        - cp -rf uni-vue3/dist/build/h5/* edgeone/uni-vue3
+        - edgeone pages deploy edgeone -n imperative-component-api-demo -t $EDGEONE_TOKEN
+pages: 
+    stage: deploy
+    script: 
+        - rm -rf public/*
+        - mkdir -p public
+        - touch public/index.html
+        - echo "<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"content="width=device-width, initial-scale=1.0"><title></title></head><body></body></html>" > public/index.html
+        - mkdir -p public/react
+        - mkdir -p public/vue2
+        - mkdir -p public/vue3
+        - mkdir -p public/uni-vue3
+        - cp -rf react/dist/* public/react
+        - cp -rf vue2/dist/* public/vue2
+        - cp -rf vue3/dist/* public/vue3
+        - cp -rf uni-vue3/dist/build/h5/* public/uni-vue3
+        - ls
+    artifacts: 
+        paths: 
+            - public
+    

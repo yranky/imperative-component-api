@@ -3,5 +3,6 @@ module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
     port: 10002
-  }
+  },
+  publicPath: '/vue2/'
 })

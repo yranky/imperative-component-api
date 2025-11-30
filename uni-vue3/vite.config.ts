@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     port: 10003
   },
+  base: '/uni-vue3/',
   plugins: [
     //https://github.com/SanshanStreet/vite-plugin-uniapp-injector
     UniViteRootInjector({
