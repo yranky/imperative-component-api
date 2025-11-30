@@ -1,0 +1,30 @@
+{
+  "name": "test-modal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:all": "concurrently 'pnpm start:react' 'pnpm start:vue3' 'pnpm start:vue2' 'pnpm start:uni-h5'",
+    "start:react": "pnpm -C react start",
+    "start:vue3": "pnpm -C vue3 dev",
+    "start:vue2": "pnpm -C vue2 serve",
+    "start:uni-h5": "pnpm -C uni-vue3 dev:h5",
+    "start:uni-mp-weixin": "pnpm -C uni-vue3 dev:mp-weixin"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.0",
+  "pnpm": {
+    "packageExtensions": {
+      "vue-template-compiler": {
+        "peerDependencies": {
+          "vue": "2.6.14"
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

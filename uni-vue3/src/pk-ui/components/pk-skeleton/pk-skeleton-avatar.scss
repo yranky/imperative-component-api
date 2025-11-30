@@ -1,0 +1,27 @@
+@import "./pk-skeleton.scss";
+
+$pk-skeleton-avatar-size: 80rpx;
+
+$namespace: pk-skeleton-avatar;
+
+.#{$namespace} {
+    width: $pk-skeleton-avatar-size;
+    height: $pk-skeleton-avatar-size;
+    background-image: linear-gradient(
+        90deg,
+        $pk-skeleton-background-start 25%,
+        $pk-skeleton-background-end 37%,
+        $pk-skeleton-background-start 63%
+    );
+    border-radius: 100%;
+    background-size: 400% 100%;
+    background-position: 100% 50%;
+
+    &--active {
+        animation: skeleton-loading $pk-skeleton-duration infinite;
+    }
+
+    &--square {
+        border-radius: 0;
+    }
+}

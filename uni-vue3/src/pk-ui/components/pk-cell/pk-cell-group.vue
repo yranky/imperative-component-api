@@ -1,0 +1,44 @@
+<template>
+    <view :class="[
+        bem.b(),
+        bem.eqm('border', !props.lastHideBorder)
+    ]">
+        <view :class="[
+            bem.e('header')
+        ]">
+            <view :class="[
+                bem.e('title')
+            ]">
+                <slot name="title">
+                    {{ props.title }}
+                </slot>
+            </view>
+            <view :class="[
+                bem.e('extra')
+            ]">
+                <slot name="extra"></slot>
+            </view>
+        </view>
+        <view :class="[
+            bem.e('content')
+        ]">
+            <slot></slot>
+        </view>
+    </view>
+</template>
+<script lang="ts" setup>
+import { cellGroupProps } from './pk-cell-group'
+import { useBem } from '../../libs/use'
+import "./pk-cell-group.scss"
+
+defineOptions({
+    name: 'PkCellGroup',
+    options: {
+        styleIsolation: 'shared'
+    }
+})
+const props = defineProps(cellGroupProps)
+
+const bem = useBem('cell-group')
+
+</script>

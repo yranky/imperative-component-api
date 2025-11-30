@@ -1,0 +1,74 @@
+@import "../../style/index.scss";
+
+$pk-navbar-padding-horizontal: $pk-padding-m;
+$pk-navbar-height: 88rpx;
+$pk-navbar-title-font-size: $pk-font-size-m;
+$pk-navbar-icon-font-size: $pk-font-size-l;
+$pk-navbar-title-color: $pk-text-color;
+$pk-navbar-icon-color: $pk-text-color;
+$pk-navbar-background: $pk-bg-color;
+$pk-navbar-z-index: $pk-z-index-l;
+
+$namespace: pk-navbar;
+
+.#{$namespace} {
+    &--fixed {
+        z-index: $pk-navbar-z-index;
+
+        &.#{$namespace}--placeholder {
+            width: 100%;
+            height: $pk-navbar-height;
+        }
+    }
+
+    &__wrapper {
+        padding: 0 $pk-navbar-padding-horizontal;
+        display: flex;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        background: $pk-navbar-background;
+        height: $pk-navbar-height;
+        width: calc(100% - 2 * $pk-navbar-padding-horizontal);
+
+        &.#{$namespace}--fixed {
+            position: fixed;
+            top: 0;
+        }
+
+        .#{$namespace}__left {
+            padding: 0 $pk-navbar-padding-horizontal;
+            position: absolute;
+            left: $pk-navbar-padding-horizontal;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: $pk-navbar-icon-font-size;
+            display: flex;
+            align-items: center;
+            color: $pk-navbar-icon-color;
+        }
+
+        .#{$namespace}__center {
+            max-width: 60%;
+            font-size: $pk-navbar-title-font-size;
+            font-weight: bold;
+            color: $pk-navbar-title-color;
+            word-break: break-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .#{$namespace}__right {
+            padding: 0 $pk-navbar-padding-horizontal;
+            position: absolute;
+            right: $pk-navbar-padding-horizontal;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: $pk-navbar-icon-font-size;
+            display: flex;
+            align-items: center;
+            color: $pk-navbar-icon-color;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+$pk-skeleton-background-start: rgba(237, 239, 242, 1);
+$pk-skeleton-background-end: rgba(237, 239, 242, 0.6);
+$pk-skeleton-duration: 1.3s;
+$pk-skeleton-margin: $pk-margin-m;
+
+$namespace: pk-skeleton;
+
+.#{$namespace} {
+    &__content {
+        display: flex;
+
+        .#{$namespace}__image {
+            margin-right: $pk-skeleton-margin;
+        }
+
+        .#{$namespace}__paragraph {
+            flex: 1;
+        }
+    }
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}

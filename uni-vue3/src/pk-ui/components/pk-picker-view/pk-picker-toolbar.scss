@@ -1,0 +1,49 @@
+$pk-picker-toolbar-padding: $pk-padding-l $pk-padding-m;
+$pk-picker-toolbar-item-margin: 0 $pk-margin-m;
+$pk-picker-toolbar-item-font-size: $pk-font-size-m;
+$pk-picker-toolbar-item-confirm-color: $pk-primary-color;
+$pk-picker-toolbar-item-cancel-color: $pk-info-color;
+
+$namespace: pk-picker-toolbar;
+
+.#{$namespace} {
+    display: flex;
+    align-items: center;
+    font-size: $pk-picker-toolbar-item-font-size;
+
+    .#{$namespace}__left {
+        margin: $pk-picker-toolbar-item-margin;
+        color: $pk-picker-toolbar-item-cancel-color;
+        padding: $pk-picker-toolbar-padding;
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+
+        &:active {
+            opacity: 0.3;
+        }
+    }
+
+    .#{$namespace}__title {
+        flex: 1;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: bolder;
+        padding: $pk-picker-toolbar-padding;
+    }
+
+    .#{$namespace}__right {
+        margin: $pk-picker-toolbar-item-margin;
+        color: $pk-picker-toolbar-item-confirm-color;
+        padding: $pk-picker-toolbar-padding;
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+
+        &:active {
+            opacity: 0.3;
+        }
+    }
+}

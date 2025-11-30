@@ -1,0 +1,5 @@
+packages: 
+  - react
+  - vue3
+  - vue2
+  - uni-vue3

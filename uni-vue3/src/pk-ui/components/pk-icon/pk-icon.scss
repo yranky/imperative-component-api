@@ -1,0 +1,10 @@
+$pk-icon-size: inherit;
+$pk-icon-color: inherit;
+
+$namespace: pk-icon;
+
+.#{$namespace} {
+    font-size: $pk-icon-size;
+    color: $pk-icon-color;
+    -webkit-tap-highlight-color: transparent;
+}
