@@ -25,6 +25,7 @@ export const showProcessModal = (title: string) => {
             onClosed: () => {
                 app.unmount();
                 document.body.removeChild(container);
+                reject();
             },
             onOk: resolve,
             onCancel: reject

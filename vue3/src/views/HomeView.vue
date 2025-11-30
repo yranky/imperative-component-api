@@ -6,12 +6,18 @@
 </template>
 <script setup lang="ts">
 import { showProcessModal } from '@/components/process-modal';
-import { ElButton } from 'element-plus';
+import { ElButton, ElMessage } from 'element-plus';
 
 
 const loadProcessModal = (isSuccess: boolean) => {
   window.isSuccess = isSuccess;
-  showProcessModal('进度测试');
+  showProcessModal('进度测试').then(() => {
+    console.log('点击了确定');
+    ElMessage.success('点击了确定');
+  }).catch(() => {
+    console.log('取消');
+    ElMessage.error('取消');
+  });
 }
 
 </script>

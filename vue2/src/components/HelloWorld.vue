@@ -7,7 +7,7 @@
 
 <script>
 import { showProcessModal } from '@/components/process-modal';
-import { Button as ElButton } from 'element-ui';
+import { Button as ElButton, MessageBox } from 'element-ui';
 
 export default {
   components: {
@@ -19,8 +19,10 @@ export default {
       window.isSuccess = isSuccess;
       showProcessModal('进度测试').then(() => {
         console.log('点击了确定');
+        MessageBox.alert('点击了确定');
       }).catch(() => {
-        console.log('点击了取消');
+        console.log('取消');
+        MessageBox.alert('取消');
       });
     }
   }
