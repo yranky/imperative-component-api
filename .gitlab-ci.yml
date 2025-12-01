@@ -44,10 +44,12 @@ build_edgeone:
         - mkdir -p edgeone/vue2
         - mkdir -p edgeone/vue3
         - mkdir -p edgeone/uni-vue3
+        - mkdir -p edgeone/edge-functions
         - cp -rf react/dist/* edgeone/react
         - cp -rf vue2/dist/* edgeone/vue2
         - cp -rf vue3/dist/* edgeone/vue3
         - cp -rf uni-vue3/dist/build/h5/* edgeone/uni-vue3
+        - cp -rf mocks/edge-functions/* edgeone/edge-functions
         - edgeone pages deploy edgeone -n imperative-component-api-demo -t $EDGEONE_TOKEN
 pages: 
     stage: deploy
