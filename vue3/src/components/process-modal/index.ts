@@ -11,7 +11,6 @@ export const showProcessModal = (title: string) => {
         // 创建一个ProcessModalComp的ref
         const compRef = ref<InstanceType<typeof ProcessModalComp>>();
 
-        // 创建新的ref容器
         const app = createApp(() => h(ProcessModalComp, {
             ref: compRef,
             // 双向绑定模态框的显示状态

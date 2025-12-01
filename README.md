@@ -1,6 +1,6 @@
 ## 启动
 
-### 启动全部
+### 启动全部(react/vue2/vue3/uni-vue3-h5)
 `pnpm start:all`
 
 ### 启动react示例
@@ -14,6 +14,7 @@
 
 ### 启动uniapp vue3示例
 `pnpm start:uni-vue3`
+
 
 ### 启动uniapp 微信小程序示例
 `pnpm start:uni-mp-weixin`
